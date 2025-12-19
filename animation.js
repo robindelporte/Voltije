@@ -1,23 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
   
 // Hero text animation
-const words = document.querySelectorAll('.hero-word');
+const wordItems = document.querySelectorAll('.hero-word-item');
 
-words.forEach(function(word) {
-  const text = word.textContent;
-  word.innerHTML = '';
+wordItems.forEach(function(wordItem) {
+  const text = wordItem.textContent.trim();
+  wordItem.innerHTML = '';
   
   text.split('').forEach(function(char) {
     const span = document.createElement('span');
     span.className = 'hero-letter';
     span.style.display = 'inline-block';
-    if (char === ' ') {
-      span.innerHTML = '&nbsp;';
-      span.style.width = '0.25em';
-    } else {
-      span.textContent = char;
-    }
-    word.appendChild(span);
+    span.textContent = char;
+    wordItem.appendChild(span);
   });
 });
 
