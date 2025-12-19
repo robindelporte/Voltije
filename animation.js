@@ -28,9 +28,9 @@ gsap.set(letters, {
   opacity: 0 
 });
 
-const enterBtn = document.getElementById('enter');
+const heroTrigger = document.getElementById('enter');
 
-enterBtn.addEventListener('click', function() {
+heroTrigger.addEventListener('click', function() {
   gsap.to(letters, {
     yPercent: 0,
     opacity: 1,
