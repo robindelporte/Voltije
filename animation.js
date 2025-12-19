@@ -30,19 +30,21 @@ gsap.set(letters, {
 
 const heroTrigger = document.getElementById('enter');
 
-heroTrigger.addEventListener('click', function() {
-  gsap.to(letters, {
-    yPercent: 0,
-    opacity: 1,
-    duration: 0.6,
-    delay: 0.5,
-    ease: 'power3.out',
-    stagger: {
-      each: 0.035,
-      from: 'center'
-    }
+if (heroTrigger) {
+  heroTrigger.addEventListener('click', function() {
+    gsap.to(letters, {
+      yPercent: 0,
+      opacity: 1,
+      duration: 0.6,
+      delay: 0.5,
+      ease: 'power3.out',
+      stagger: {
+        each: 0.035,
+        from: 'center'
+      }
+    });
   });
-});
+}
 
   // Time display
   function updateTime() {
@@ -179,7 +181,7 @@ heroTrigger.addEventListener('click', function() {
   if (firstSummaryItem) {
     firstSummaryItem.classList.add('is-open');
   }
-  
+
   for (var i = 0; i < summaryHeadings.length; i++) {
     summaryHeadings[i].addEventListener('click', function() {
       var item = this.closest('.summary_list-item');
