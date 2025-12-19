@@ -1,40 +1,41 @@
 document.addEventListener('DOMContentLoaded', function() {
   
-  // Hero text animation
-  const words = document.querySelectorAll('.hero-word');
+ // Hero text animation
+const words = document.querySelectorAll('.hero-word');
+
+words.forEach(function(word) {
+  const text = word.textContent;
+  word.innerHTML = '';
   
-  words.forEach(function(word) {
-    const text = word.textContent;
-    word.innerHTML = '';
-    
-    text.split('').forEach(function(char) {
-  const span = document.createElement('span');
-  span.className = 'hero-letter';
-  if (char === ' ') {
-    span.innerHTML = '&nbsp;';
-  } else {
-    span.textContent = char;
-  }
-  word.appendChild(span);
-});
-  
-  const letters = document.querySelectorAll('.hero-letter');
-  
-  gsap.set(letters, { 
-    yPercent: -120,
-    opacity: 0 
-  });
-  
-  gsap.to(letters, {
-    yPercent: 0,
-    opacity: 1,
-    duration: 0.6,
-    ease: 'power3.out',
-    stagger: {
-      each: 0.035,
-      from: 'center'
+  text.split('').forEach(function(char) {
+    const span = document.createElement('span');
+    span.className = 'hero-letter';
+    if (char === ' ') {
+      span.innerHTML = '&nbsp;';
+    } else {
+      span.textContent = char;
     }
+    word.appendChild(span);
   });
+});
+
+const letters = document.querySelectorAll('.hero-letter');
+
+gsap.set(letters, { 
+  yPercent: -120,
+  opacity: 0 
+});
+
+gsap.to(letters, {
+  yPercent: 0,
+  opacity: 1,
+  duration: 0.6,
+  ease: 'power3.out',
+  stagger: {
+    each: 0.035,
+    from: 'center'
+  }
+});
 
   // Time display
   function updateTime() {
