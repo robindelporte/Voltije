@@ -28,16 +28,20 @@ gsap.set(letters, {
   opacity: 0 
 });
 
-gsap.to(letters, {
-  yPercent: 0,
-  opacity: 1,
-  duration: 0.6,
-  delay: 0.3,
-  ease: 'power3.out',
-  stagger: {
-    each: 0.035,
-    from: 'center'
-  }
+const enterBtn = document.getElementById('enter');
+
+enterBtn.addEventListener('click', function() {
+  gsap.to(letters, {
+    yPercent: 0,
+    opacity: 1,
+    duration: 0.6,
+    delay: 0.5,
+    ease: 'power3.out',
+    stagger: {
+      each: 0.035,
+      from: 'center'
+    }
+  });
 });
 
   // Time display
