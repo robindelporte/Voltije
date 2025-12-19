@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   
- // Hero text animation
+// Hero text animation
 const words = document.querySelectorAll('.hero-word');
 
 words.forEach(function(word) {
@@ -10,8 +10,10 @@ words.forEach(function(word) {
   text.split('').forEach(function(char) {
     const span = document.createElement('span');
     span.className = 'hero-letter';
+    span.style.display = 'inline-block';
     if (char === ' ') {
       span.innerHTML = '&nbsp;';
+      span.style.width = '0.25em';
     } else {
       span.textContent = char;
     }
@@ -30,6 +32,7 @@ gsap.to(letters, {
   yPercent: 0,
   opacity: 1,
   duration: 0.6,
+  delay: 0.3,
   ease: 'power3.out',
   stagger: {
     each: 0.035,
