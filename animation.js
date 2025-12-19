@@ -8,12 +8,15 @@ document.addEventListener('DOMContentLoaded', function() {
     word.innerHTML = '';
     
     text.split('').forEach(function(char) {
-      const span = document.createElement('span');
-      span.className = 'hero-letter';
-      span.textContent = char;
-      word.appendChild(span);
-    });
-  });
+  const span = document.createElement('span');
+  span.className = 'hero-letter';
+  if (char === ' ') {
+    span.innerHTML = '&nbsp;';
+  } else {
+    span.textContent = char;
+  }
+  word.appendChild(span);
+});
   
   const letters = document.querySelectorAll('.hero-letter');
   
